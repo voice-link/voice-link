@@ -1,0 +1,27 @@
+{
+  "name": "voice.link",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "metalsmith",
+    "build:watch": "node build/watch.js",
+    "serve": "node build/serve.js",
+    "deploy": "yarn build && firebase deploy"
+  },
+  "keywords": [],
+  "author": "Jakob Hohlfeld <jhohlfeld@polyban.io>",
+  "license": "ISC",
+  "devDependencies": {
+    "fb-watchman": "^2.0.0",
+    "finalhandler": "^1.0.4",
+    "handlebars": "^4.0.10",
+    "metalsmith": "^2.3.0",
+    "metalsmith-drafts": "^0.0.1",
+    "metalsmith-layouts": "^1.8.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "serve-static": "^1.12.4"
+  }
+}

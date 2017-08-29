@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js" lang="de">
+<head>
+<base href="/">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Place favicon.ico in the root directory -->
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<header>
+  <div class="logo">
+    <img src="assets/tdn-icon.512.png">
+  </div>
+</header>
+
+<main>{{{ contents }}}</main>
+
+<footer>
+  <div class="credits">
+    <b>Impressum</b>
+
+    <p>Verantwortlich laut §5 TMG</p>
+
+    <p>Jakob Hohlfeld, Schillerstraße 40, 38440 Wolfsburg</p>
+
+    <p>
+      <a href="privacy.html">Datenschutzerklärung</a>
+    </p>
+
+    <p>
+    Polyban.io Web Consulting<br>
+    Jakob Hohlfeld<br>
+    Schillerstraße 40<br>
+    ℅ Schiller40 CoWorking-Space<br>
+    38440 Wolfsburg
+    </p>
+
+    <p>
+      <a href="http://polyban.io" target="blank">http://polyban.io</a>
+    </p>
+
+  </div>
+</footer>
+
+<script>
+var gaProperty = 'UA-60273283-2';
+var disableStr = 'ga-disable-' + gaProperty;
+if (document.cookie.indexOf(disableStr + '=true') > -1) {
+  window[disableStr] = true;
+}
+function gaOptout() {
+  document.cookie = disableStr + '=true; expires=' + Date.UTC(new Date(Date.now()).getFullYear()+99) + '; path=/';
+  window[disableStr] = true;
+}
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-60273283-2', 'auto');
+ga('set', 'anonymizeIp', true);
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>
