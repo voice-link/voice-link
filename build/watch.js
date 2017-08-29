@@ -1,10 +1,9 @@
-var path = require('path')
-var watchman = require('fb-watchman')
-var Metalsmith = require('metalsmith')
+const path = require('path')
+const watchman = require('fb-watchman')
+const Metalsmith = require('metalsmith')
 
-var dir_of_interest = path.join(__dirname, '..')
-var client = new watchman.Client()
-var ignore = [
+const dir_of_interest = path.join(__dirname, '..')
+const ignore = [
   /^node_modules/,
   /^public/,
   /^build/,
@@ -12,8 +11,8 @@ var ignore = [
 ]
 
 // initialize metalsmith
-var config = require(path.join(__dirname, '../metalsmith.json'))
-var builder = Metalsmith(path.join(__dirname, '..'))
+const config = require(path.join(__dirname, '../metalsmith.json'))
+const builder = Metalsmith(path.join(__dirname, '..'))
 
 // load metalsmith config options
 Object.keys(config).forEach(key => {
@@ -139,23 +138,34 @@ function watchAndRebuild(client) {
   }
 }
 
-client.capabilityCheck(
-  { optional:[], required: ['relative_root'] },
-  function (error, resp) {
-    if (error) {
-      console.log(error)
-      client.end()
-      return
-    }
-
-    // Initiate the watch
-    client.command(['watch-project', dir_of_interest], watchAndRebuild(client))
-
-    builder.build(
-      function(err) {
-        if (err) throw err
-        console.log('Build finished!')
+function watch() {
+  const client = new watchman.Client()
+  client.capabilityCheck(
+    { optional:[], required: ['relative_root'] },
+    function (error, resp) {
+      if (error) {
+        console.log(error)
+        client.end()
+        return
       }
-    )
-  }
-)
+
+      // Initiate the watch
+      client.command(['watch-project', dir_of_interest], watchAndRebuild(client))
+
+      builder.build(
+        function(err) {
+          if (err) throw err
+          console.log('Build finished!')
+        }
+      )
+    }
+  )
+}
+
+// handle direct invokation
+const [ , scriptName ] = process.argv
+if (scriptName && new RegExp(__filename).exec(scriptName)) {
+  watch()
+}
+
+module.exports = watch

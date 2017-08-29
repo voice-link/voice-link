@@ -2,13 +2,18 @@
   "name": "voice.link",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": ">=8.3"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && firebase deploy",
+    "dev": "npm run build:serve",
     "build": "metalsmith",
+    "build:serve": "node build/index.js",
     "build:watch": "node build/watch.js",
-    "serve": "node build/serve.js",
-    "deploy": "yarn build && firebase deploy"
+    "serve": "node build/serve.js"
   },
   "keywords": [],
   "author": "Jakob Hohlfeld <jhohlfeld@polyban.io>",
