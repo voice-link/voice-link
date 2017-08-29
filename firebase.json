@@ -8,8 +8,8 @@
     ],
     "rewrites": [
       {
-        "source": "/index.html",
-        "destination": "/alexa-tdn/index.html"
+        "source": "index.html",
+        "destination": "/alexa-tdn"
       }
     ]
   }
