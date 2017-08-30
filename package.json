@@ -10,15 +10,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "npm run build && firebase deploy",
     "dev": "npm run build:serve",
-    "build": "metalsmith",
+    "build": "node build/build.js",
     "build:serve": "node build/index.js",
-    "build:watch": "node build/watch.js",
     "serve": "node build/serve.js"
   },
   "keywords": [],
   "author": "Jakob Hohlfeld <jhohlfeld@polyban.io>",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^7.1.3",
+    "cssnano": "next",
     "fb-watchman": "^2.0.0",
     "finalhandler": "^1.0.4",
     "handlebars": "^4.0.10",
@@ -27,6 +28,10 @@
     "metalsmith-layouts": "^1.8.1",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.5.0",
+    "postcss": "^6.0.10",
+    "postcss-cli": "^4.1.0",
+    "postcss-import": "^10.0.0",
+    "precss": "^2.0.0",
     "serve-static": "^1.12.4"
   }
 }

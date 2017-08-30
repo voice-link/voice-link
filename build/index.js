@@ -1,4 +1,4 @@
-const watch = require('./watch')
+const watch = require('./build')
 const serve = require('./serve')
 
 serve()

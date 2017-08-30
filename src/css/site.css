@@ -1,0 +1,117 @@
+/*! Voice.link style sheet */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 -1em;
+  padding: 0 1em;
+  background-color: whitesmoke;
+  overflow: hidden;
+  border-bottom: 1px solid whitesmoke;
+}
+
+header > * {
+  margin: 0 1em;
+}
+
+header .logo {
+  align-self: stretch;
+  background-color: white;
+  padding: 1em;
+  margin: 0;
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,.1);
+}
+
+header .logo img {
+  max-width: 64px;
+  max-height: 64px;
+  border: 3px solid #59B7DD;
+  border-radius: 50%;
+}
+
+header h1 {
+  margin: 0.5em;
+}
+
+main {
+  flex: 1;
+  padding: 0 1em 0 calc(3em + 64px + 2 * 3px);
+}
+
+main > * {
+    max-width: 65em;
+}
+
+h1 blockquote {
+  font-size: 60%;
+  font-weight: 400;
+  margin: 0;
+  font-style: italic;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  margin: 0 -1em;
+  padding: 1em;
+  padding-left: calc(3em + 64px + 2 * 3px);
+  background-color: whitesmoke;
+  color: rgba(0,0,0,.6);
+}
+
+footer section {
+  font-size: 80%;
+  padding: 0 1.25em;
+}
+
+footer .privacy {
+  font-size: 80%;
+}
+
+.button.cta {
+  display: inline-block;
+  text-align: center;
+  background-color: gold;
+  padding: .75em 1em;
+  border-radius: 0.4em;
+  border: 1px solid darkgoldenrod;
+  border-width: 0 1px 1px 0;
+  text-decoration: none;
+  color: darkred;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 35em) {
+  header h1 {
+    font-size: 100%;
+    line-height: 1.2;
+  }
+
+  header h1 blockquote {
+    margin: 1em 0;
+  }
+
+  main, footer {
+    padding: .5em;
+  }
+
+  main > p:first-child {
+    margin-top: 0;
+  }
+
+  p.cta {
+    text-align: center;
+  }
+}

@@ -2,6 +2,8 @@ const path = require('path')
 const watchman = require('fb-watchman')
 const Metalsmith = require('metalsmith')
 
+const processCss = require('./postcss')
+
 const dir_of_interest = path.join(__dirname, '..')
 const ignore = [
   /^node_modules/,
@@ -28,6 +30,22 @@ Object.keys(config.plugins).forEach(key => {
   var plugin = require(key)
   builder.use(plugin(args))
 })
+
+const builders = {
+  js: (inlineCSS) => {
+    builder
+      .metadata({ inlineCSS })
+      .build(function(err) {
+        if (err) throw err
+        console.log('JS: Build finished!')
+      })
+  },
+  css: () => processCss()
+    .then((result) => {
+      console.log('CSS: Build finished!')
+      return result
+    })
+}
 
 // `watch` is obtained from `resp.watch` in the `watch-project` response.
 // `relative_path` is obtained from `resp.relative_path` in the
@@ -97,11 +115,14 @@ function make_subscription(client, watch, relative_path) {
             return
           }
 
-          console.log('re-building...')
-          builder.build(function(err) {
-            if (err) throw err
-            console.log('Build finished!')
-          })
+          // build site using builders
+          if (files.some(file => file.name.match(/\.css$/))) {
+            console.log('re-building css and js...')
+            return buildAll()
+          } else {
+            console.log('re-building js...')
+            builders.js()
+          }
         }
       )
     }
@@ -138,6 +159,12 @@ function watchAndRebuild(client) {
   }
 }
 
+function buildAll() {
+  builders.css().then((cssResult) => {
+    builders.js(cssResult)
+  })
+}
+
 function watch() {
   const client = new watchman.Client()
   client.capabilityCheck(
@@ -152,12 +179,8 @@ function watch() {
       // Initiate the watch
       client.command(['watch-project', dir_of_interest], watchAndRebuild(client))
 
-      builder.build(
-        function(err) {
-          if (err) throw err
-          console.log('Build finished!')
-        }
-      )
+      // build site using metalsmith
+      buildAll()
     }
   )
 }
@@ -165,7 +188,7 @@ function watch() {
 // handle direct invokation
 const [ , scriptName ] = process.argv
 if (scriptName && new RegExp(__filename).exec(scriptName)) {
-  watch()
+  buildAll()
 }
 
 module.exports = watch
