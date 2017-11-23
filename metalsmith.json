@@ -4,23 +4,30 @@
   "clean": true,
   "plugins": {
     "metalsmith-markdown": true,
-    "metalsmith-layouts": "handlebars"
+    "metalsmith-layouts": {
+      "engine": "handlebars",
+      "partials": "partials"
+    }
   },
   "metadata": {
     "title": "Conversational UX - Voice.link",
     "description": "Maßgeschneiderte Pakete für das Alexa Skills Kit",
     "navigation": [
       {
+        "title": "Home",
+        "link": "/"
+      },
+      {
         "title": "Conversational Design",
-        "link": "conversational-design.html"
+        "link": "/conversational-design.html"
       },
       {
         "title": "Alexa Skills Kit",
-        "link": "alexa-skills-kit.html"
+        "link": "/alexa-skills-kit.html"
       },
       {
         "title": "Pakete & Preise",
-        "link": "packages.html"
+        "link": "/packages.html"
       },
       {
         "title": "Über Uns",

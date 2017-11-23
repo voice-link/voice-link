@@ -12,53 +12,17 @@ body {
 }
 
 header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 0 -1em;
   padding: 0 1em;
   background-color: whitesmoke;
-  overflow: hidden;
-  border-bottom: 1px solid whitesmoke;
-}
-
-header > * {
-  margin: 0 1em;
-}
-
-header .logo {
-  align-self: stretch;
-  background-color: white;
-  padding: 1em;
-  margin: 0;
-  box-shadow: 1px 1px 5px 0px rgba(0,0,0,.1);
-}
-
-header .logo img {
-  max-width: 64px;
-  max-height: 64px;
-  border: 3px solid #59B7DD;
-  border-radius: 50%;
-}
-
-header h1 {
-  margin: 0.5em;
 }
 
 main {
   flex: 1;
-  padding: 0 1em 0 calc(3em + 64px + 2 * 3px);
+  margin: 2em 1em;
 }
 
-main > * {
-    max-width: 65em;
-}
-
-h1 blockquote {
-  font-size: 60%;
-  font-weight: 400;
-  margin: 0;
-  font-style: italic;
+main h2:first-child {
+  margin-top: 0;
 }
 
 footer {
@@ -66,7 +30,6 @@ footer {
   flex-direction: row;
   margin: 0 -1em;
   padding: 1em;
-  padding-left: calc(3em + 64px + 2 * 3px);
   background-color: whitesmoke;
   color: rgba(0,0,0,.6);
 }
@@ -81,37 +44,20 @@ footer .privacy {
 }
 
 .button.cta {
-  display: inline-block;
-  text-align: center;
-  background-color: gold;
-  padding: .75em 1em;
-  border-radius: 0.4em;
-  border: 1px solid darkgoldenrod;
+  background-color: hsl(122, 39%, 49%);
+  border: 1px solid hsl(88, 50%, 53%);
+  border-radius: .4em;
   border-width: 0 1px 1px 0;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  padding: .75em 1em;
+  text-align: center;
   text-decoration: none;
-  color: darkred;
   white-space: nowrap;
+  font-size: 1.2em;
+  letter-spacing: .1em;
 }
 
-@media screen and (max-width: 35em) {
-  header h1 {
-    font-size: 100%;
-    line-height: 1.2;
-  }
-
-  header h1 blockquote {
-    margin: 1em 0;
-  }
-
-  main, footer {
-    padding: .5em;
-  }
-
-  main > p:first-child {
-    margin-top: 0;
-  }
-
-  p.cta {
-    text-align: center;
-  }
+td {
+  vertical-align: top;
 }

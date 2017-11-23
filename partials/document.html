@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js" lang="de">
+<head>
+<base href="/">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="favicon.png" />
+
+<!-- Place favicon.ico in the root directory -->
+
+<style type="text/css">{{ inlineCSS }}</style>
+<!--[if lte IE 11]>
+<link rel="stylesheet" type="text/css" href="css/ie.css">
+<![endif]-->
+
+</head>
+<body class="{{bodyclass}}">
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+{{> @partial-block }}
+
+</body>
+</html>

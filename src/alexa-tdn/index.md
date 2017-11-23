@@ -1,5 +1,5 @@
 ---
-layout: layout.html
+layout: skills.html
 title: Alexa-Skill Tag der Niedersachsen 2017
 headline: Alexa-Skill für den Tag der Niedersachsen 2017
 subheadline: "\"Alexa, frage den Tag der Niedersachsen nach dem Programm für Freitag!\""

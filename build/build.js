@@ -31,10 +31,15 @@ Object.keys(config.plugins).forEach(key => {
   builder.use(plugin(args))
 })
 
+let _cachedCSS
+
 const builders = {
   js: (inlineCSS) => {
+    if (inlineCSS) {
+      _cachedCSS = inlineCSS
+    }
     builder
-      .metadata({ inlineCSS })
+      .metadata({ inlineCSS: inlineCSS || _cachedCSS })
       .build(function(err) {
         if (err) throw err
         console.log('JS: Build finished!')
