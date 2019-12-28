@@ -22,7 +22,7 @@
     "cssnano": "next",
     "fb-watchman": "^2.0.0",
     "finalhandler": "^1.0.4",
-    "handlebars": "^4.0.10",
+    "handlebars": "^4.3.0",
     "metalsmith": "^2.3.0",
     "metalsmith-drafts": "^0.0.1",
     "metalsmith-layouts": "^1.8.1",
